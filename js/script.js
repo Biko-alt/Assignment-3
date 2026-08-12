@@ -15,19 +15,11 @@
    ========================================= */
 
 
-/* =========================================
-   STUDENT INFORMATION
-========================================= */
+/* STUDENT INFORMATION */
 
 const STUDENT_NAME = "Biko Nyambaka";
 
 const STUDENT_ID = "200651414";
-
-
-/*
-    Find the paragraph in index.html
-    and dynamically insert the information.
-*/
 
 const studentInfo =
     document.querySelector("#student-info");
@@ -36,43 +28,17 @@ studentInfo.textContent =
     `Student: ${STUDENT_NAME} | Student ID: ${STUDENT_ID}`;
 
 
-/* =========================================
-   API CONFIGURATION
-========================================= */
-
-/*
-    Data Dragon provides League of Legends
-    champion data and artwork.
-
-    First, we retrieve the current game version.
-    This prevents us from hard-coding an old
-    League of Legends patch number.
-*/
+/* API CONFIGURATION */
 
 const VERSION_URL =
     "https://ddragon.leagueoflegends.com/api/versions.json";
 
-
-/*
-    This variable will hold the URL for
-    the champion data after the current
-    version is retrieved.
-*/
-
 let CHAMPION_API_URL = "";
-
-
-/*
-    Champion artwork uses the same version
-    number as the champion data.
-*/
 
 let IMAGE_BASE_URL = "";
 
 
-/* =========================================
-   HTML ELEMENT REFERENCES
-========================================= */
+/* HTML ELEMENT REFERENCES */
 
 const championContainer =
     document.querySelector("#champion-container");
@@ -99,21 +65,11 @@ const sortSelect =
     document.querySelector("#sort-select");
 
 
-/* =========================================
-   DATA STORAGE
-========================================= */
-
-/*
-    All champions returned from the API
-    are stored here.
-*/
+/* DATA STORAGE */
 
 let champions = [];
 
-
-/* =========================================
-   GET CURRENT LEAGUE VERSION
-========================================= */
+/* GET CURRENT LEAGUE VERSION */
 
 async function getCurrentVersion() {
 
@@ -126,11 +82,6 @@ async function getCurrentVersion() {
 
         const response =
             await fetch(VERSION_URL);
-
-
-        /*
-            Make sure the request succeeded.
-        */
 
         if (!response.ok) {
 
@@ -193,9 +144,7 @@ async function getCurrentVersion() {
 }
 
 
-/* =========================================
-   GET CHAMPION DATA
-========================================= */
+/* GET CHAMPION DATA */
 
 async function getChampions() {
 
@@ -285,9 +234,7 @@ async function getChampions() {
 }
 
 
-/* =========================================
-   UPDATE DASHBOARD SUMMARY
-========================================= */
+/* UPDATE DASHBOARD SUMMARY */
 
 function updateSummary() {
 
@@ -343,9 +290,7 @@ function updateSummary() {
 }
 
 
-/* =========================================
-   DISPLAY CHAMPIONS
-========================================= */
+/* DISPLAY CHAMPIONS */
 
 function displayChampions() {
 
@@ -362,9 +307,7 @@ function displayChampions() {
         [...champions];
 
 
-    /* =====================================
-       SEARCH
-    ====================================== */
+    /* SEARCH */
 
     const searchTerm =
         searchInput.value
@@ -398,9 +341,7 @@ function displayChampions() {
     }
 
 
-    /* =====================================
-       ROLE FILTER
-    ====================================== */
+    /* ROLE FILTER */
 
     const selectedRole =
         roleSelect.value;
@@ -425,9 +366,7 @@ function displayChampions() {
     }
 
 
-    /* =====================================
-       SORTING
-    ====================================== */
+    /* SORTING */
 
     const sortValue =
         sortSelect.value;
@@ -487,16 +426,12 @@ function displayChampions() {
     }
 
 
-    /* =====================================
-       CLEAR OLD RESULTS
-    ====================================== */
+    /* CLEAR OLD RESULTS */
 
     championContainer.innerHTML = "";
 
 
-    /* =====================================
-       NO RESULTS
-    ====================================== */
+    /* NO RESULTS */
 
     if (displayedChampions.length === 0) {
 
@@ -513,9 +448,7 @@ function displayChampions() {
     }
 
 
-    /* =====================================
-       CREATE CHAMPION CARDS
-    ====================================== */
+    /* CREATE CHAMPION CARDS */
 
     displayedChampions.forEach(
         champion => {
@@ -531,9 +464,7 @@ function displayChampions() {
 }
 
 
-/* =========================================
-   CREATE CHAMPION CARD
-========================================= */
+/* CREATE CHAMPION CARD */
 
 function createChampionCard(champion) {
 
@@ -746,9 +677,7 @@ function createChampionCard(champion) {
 }
 
 
-/* =========================================
-   SEARCH EVENT
-========================================= */
+/* SEARCH EVENT */
 
 /*
     Rebuild the champion cards whenever
@@ -761,9 +690,7 @@ searchInput.addEventListener(
 );
 
 
-/* =========================================
-   ROLE FILTER EVENT
-========================================= */
+/* ROLE FILTER EVENT */
 
 roleSelect.addEventListener(
     "change",
@@ -771,9 +698,7 @@ roleSelect.addEventListener(
 );
 
 
-/* =========================================
-   SORT EVENT
-========================================= */
+/* SORT EVENT */
 
 sortSelect.addEventListener(
     "change",
@@ -781,9 +706,7 @@ sortSelect.addEventListener(
 );
 
 
-/* =========================================
-   START APPLICATION
-========================================= */
+/* START APPLICATION */
 
 /*
     Begin by finding the newest available
