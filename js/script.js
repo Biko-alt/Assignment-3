@@ -15,9 +15,9 @@
    ========================================= */
 
 
-/* 
-   Biko Nyambaka 200651414
-*/
+/* =========================================
+   STUDENT INFORMATION
+========================================= */
 
 const STUDENT_NAME = "Biko Nyambaka";
 
@@ -36,9 +36,9 @@ studentInfo.textContent =
     `Student: ${STUDENT_NAME} | Student ID: ${STUDENT_ID}`;
 
 
-/* 
+/* =========================================
    API CONFIGURATION
-*/
+========================================= */
 
 /*
     Data Dragon provides League of Legends
@@ -70,9 +70,9 @@ let CHAMPION_API_URL = "";
 let IMAGE_BASE_URL = "";
 
 
-/* 
+/* =========================================
    HTML ELEMENT REFERENCES
- */
+========================================= */
 
 const championContainer =
     document.querySelector("#champion-container");
@@ -99,9 +99,9 @@ const sortSelect =
     document.querySelector("#sort-select");
 
 
-/* 
+/* =========================================
    DATA STORAGE
-*/
+========================================= */
 
 /*
     All champions returned from the API
@@ -111,9 +111,9 @@ const sortSelect =
 let champions = [];
 
 
-/* 
+/* =========================================
    GET CURRENT LEAGUE VERSION
- */
+========================================= */
 
 async function getCurrentVersion() {
 
@@ -193,9 +193,9 @@ async function getCurrentVersion() {
 }
 
 
-/* 
+/* =========================================
    GET CHAMPION DATA
-*/
+========================================= */
 
 async function getChampions() {
 
@@ -285,9 +285,9 @@ async function getChampions() {
 }
 
 
-/*
+/* =========================================
    UPDATE DASHBOARD SUMMARY
-*/
+========================================= */
 
 function updateSummary() {
 
@@ -343,9 +343,9 @@ function updateSummary() {
 }
 
 
-/*
+/* =========================================
    DISPLAY CHAMPIONS
-*/
+========================================= */
 
 function displayChampions() {
 
@@ -362,9 +362,9 @@ function displayChampions() {
         [...champions];
 
 
-    /* 
+    /* =====================================
        SEARCH
-    */
+    ====================================== */
 
     const searchTerm =
         searchInput.value
@@ -398,9 +398,9 @@ function displayChampions() {
     }
 
 
-    /* 
+    /* =====================================
        ROLE FILTER
-    */
+    ====================================== */
 
     const selectedRole =
         roleSelect.value;
@@ -425,9 +425,9 @@ function displayChampions() {
     }
 
 
-    /* 
+    /* =====================================
        SORTING
-    */
+    ====================================== */
 
     const sortValue =
         sortSelect.value;
@@ -487,16 +487,16 @@ function displayChampions() {
     }
 
 
-    /* 
+    /* =====================================
        CLEAR OLD RESULTS
-    */
+    ====================================== */
 
     championContainer.innerHTML = "";
 
 
-    /* 
+    /* =====================================
        NO RESULTS
-    */
+    ====================================== */
 
     if (displayedChampions.length === 0) {
 
@@ -513,9 +513,9 @@ function displayChampions() {
     }
 
 
-    /* 
+    /* =====================================
        CREATE CHAMPION CARDS
-    */
+    ====================================== */
 
     displayedChampions.forEach(
         champion => {
@@ -531,9 +531,9 @@ function displayChampions() {
 }
 
 
-/* 
+/* =========================================
    CREATE CHAMPION CARD
-*/
+========================================= */
 
 function createChampionCard(champion) {
 
@@ -746,9 +746,9 @@ function createChampionCard(champion) {
 }
 
 
-/* 
+/* =========================================
    SEARCH EVENT
-*/
+========================================= */
 
 /*
     Rebuild the champion cards whenever
@@ -761,9 +761,9 @@ searchInput.addEventListener(
 );
 
 
-/* 
+/* =========================================
    ROLE FILTER EVENT
-*/
+========================================= */
 
 roleSelect.addEventListener(
     "change",
@@ -771,9 +771,9 @@ roleSelect.addEventListener(
 );
 
 
-/*
+/* =========================================
    SORT EVENT
-*/
+========================================= */
 
 sortSelect.addEventListener(
     "change",
@@ -781,9 +781,9 @@ sortSelect.addEventListener(
 );
 
 
-/* 
+/* =========================================
    START APPLICATION
-*/
+========================================= */
 
 /*
     Begin by finding the newest available
