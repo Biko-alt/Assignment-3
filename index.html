@@ -1,112 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>League of Legends Champion Dashboard</title>
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/script.js" defer></script>
-    </head>
 
-    <body>
-        <header class="hero-header">
-            <div class="header-content">
-                <p class="eyebrow">MOBA API PROJECT</p>
+<head>
+    <meta charset="UTF-8">
 
-                <h1>League of Legends <span>Champion Dashboard</span></h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <p class="subtitle">Explore champion statistics, builds, and strategies</p>
+    <title>League of Legends Champion Dashboard</title>
 
-                <p id="student-info"></p>
+    <!--
+        Link to the external CSS stylesheet.
+    -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--
+        defer makes sure the JavaScript executes after
+        the HTML document has been parsed.
+    -->
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!--HEADER-->
+
+    <header class="hero-header">
+
+        <div class="header-content">
+
+            <p class="eyebrow">MOBA API PROJECT</p>
+
+            <h1>League of Legends <span>Champion Dashboard</span></h1>
+
+            <p class="subtitle">Explore League of Legends champions,roles, difficulty, and gameplay statistics.</p>
+
+            <p id="Biko Nyambaka 200651414"></p>
+
+        </div>
+
+    </header>
+
+
+    <!--MAIN CONTENT-->
+
+    <main>
+
+        <!--CONTROLS-->
+
+        <section class="controls">
+
+            <div class="control-group">
+                <label for="search-input">Search Champions</label>
+
+                <input type="text"id="search-input"placeholder="Search for a champion...">
             </div>
-        </header>
 
-        <!-- Main Content -->
-         <main>
-            <section class="controls">
-                <div class="control-group">
-                    <label for="search-input">Search Champions:</label>
-                    <input type="text" id="search-input" placeholder="Enter champion name...">
-                </div>
+            <div class="control-group">
 
-                <div class="control-group">
-                    <label for="role-select">Select Role:</label>
-                    <select id="role-select">
-                        <option value="all">All Roles</option>
-                        <option value="Fighter">Fighter</option>
-                        <option value="Tank">Tank</option>
-                        <option value="Mage">Mage</option>
-                        <option value="Assassin">Assassin</option>
-                        <option value="Marksman">Marksman</option>
-                        <option value="Support">Support</option>
-                    </select>
-                </div>
+                <label for="role-select">Filter by Role</label>
 
-                <div class="control-group">
-                    <label for="sort-select">Sort Champions</label>
-                    <select id="sort-select">
-                        <option value="Alphabetical">Alphabetical</option>
-                        <option value="Highest Difficulty">Highest Difficulty</option>
-                        <option value="Highest Attack">Highest Attack</option>
-                        <option value="Highest Defense">Highest Defense</option>
-                        <option value="Highest Magic">Highest Magic</option>
-                    </select>
-                </div>
-            </section>
+                <select id="role-select">
+                    <option value="all">All Roles</option>
+                    <option value="fighter">Fighter</option>
+                    <option value="tank">Tank</option>
+                    <option value="mage">Mage</option>
+                    <option value="assassin">Assassin</option>
+                    <option value="marksman">Marksman</option>
+                    <option value="support">Support</option>
+                </select>
 
-            <!-- SUMMARY -->
-             <section class="summary">
-                <div class="summary-card">
-                    <span class="summary-number" id="champion-count">--</span>
-                    <span class="summary-label">Champions</span>
-                </div>
+            </div>
 
-                <div class="summary-card">
-                    <span class="summary-number" id="average-difficulty">--</span>
-                    <span class="summary-label">Average Difficulty</span>
-                </div>
+            <div class="control-group">
 
-                <div class="summary-card">
-                    <span class="summary-number" id="most-difficult">--</span>
-                    <span class="summary-label">Most Difficult Champion</span>
-                </div>
-             </section>
+                <label for="sort-select">Sort Champions</label>
 
-            <!-- API STATUS -->
-                <p id="status-message" class="status">Loading League of Legends Data...</p>
+                <select id="sort-select">
+                    <option value="name">Alphabetical</option>
+                    <option value="difficulty">Highest Difficulty</option>
+                    <option value="attack">Highest Attack</option>
+                    <option value="defense">Highest Defense</option>
+                    <option value="magic">Highest Magic</option>
+                </select>
+            </div>
+        </section>
 
-            <!-- CHAMPION CARDS -->
 
-            <!-- Champion cards will be dynamically inserted here -->
+        <!--SUMMARY-->
 
-            <section class="champion-grid" id="champion-container"></section>
+        <section class="summary">
+            <div class="summary-card">
+                <span class="summary-number" id="champion-count">--</span>
+                <span class="summary-label">Champions</span>
+            </div>
 
-            <!-- API INFORMATION -->
-            <section class="documentation">
-                <div>
-                    <p class="section-label">API INFORMATION</p>
+            <div class="summary-card">
+                <span class="summary-number" id="average-difficulty">--</span>
+                <span class="summary-label">Average Difficulty</span>
+            </div>
 
-                    <h2>About This Project</h2>
+            <div class="summary-card">
+                <span class="summary-number" id="most-difficult">--</span>
+                <span class="summary-label">Most Difficult Champion</span>
+            </div>
+        </section>
 
-                    <p>This project provides a simple interface to explore information about champions in League of Legends. Data is fetched from the Riot Games API, which provides detailed information about each champion, including their stats, abilities, and roles.</p>
 
-                    <p>The information is requested dynamically using JavaScript and displayed as interactive champion cards.</p>
-                </div>
+        <!--API STATUS-->
 
-                <div class="documentation-links">
-                    <a href="https://developer.riotgames.com/" target="_blank" rel="noopener noreferrer">Riot Games Developer Portal</a>
+        <p id="status-message" class="status">Loading League of Legends data...</p>
 
-                    <a href="https://developer.riotgames.com/docs/lol" target="_blank" rel="noopener noreferrer">League of Legends API Documentation</a>
 
-                    <a href="https://ddragon.leagueoflegends.com/" target="_blank" rel="noopener noreferrer">Data Dragon</a>
-                </div>
-            </section>
-        </main>
+        <!--CHAMPION CARDS-->
 
-        <!-- FOOTER -->
-        <footer>
-            <p>League of Legends Champion Dashboard &copy; 2026</p>
-            <p>Data provided by Riot Games Data Dragon</p>
-        </footer>
-    </body>
+        <section id="champion-container" class="champion-grid"></section>
+
+        <!--API INFORMATION-->
+
+        <section class="documentation">
+
+            <div>
+                <p class="section-label">API INFORMATION</p>
+
+                <h2>About This Project</h2>
+
+                <p>This website uses Riot Games' League of Legends Data Dragon service to retrieve champion information and official champion artwork.</p>
+
+                <p>The information is requested dynamically using JavaScript and displayed as interactive champion cards.</p>
+            </div>
+
+
+            <div class="documentation-links">
+                <a href="https://developer.riotgames.com/" target="_blank" rel="noopener noreferrer">Riot Games Developer Portal</a>
+
+                <a href="https://developer.riotgames.com/docs/lol" target="_blank" rel="noopener noreferrer">League of Legends API Documentation</a>
+
+                <a href="https://ddragon.leagueoflegends.com/" target="_blank" rel="noopener noreferrer">Data Dragon</a>
+            </div>
+        </section>
+    </main>
+
+    <!--FOOTER-->
+
+    <footer>
+        <p>League of Legends Champion Dashboard &copy; 2026</p>
+
+        <p>Data provided by Riot Games Data Dragon</p>
+    </footer>
+</body>
 </html>
