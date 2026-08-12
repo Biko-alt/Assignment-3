@@ -1,0 +1,391 @@
+/* GLOBAL STYLES */
+* {
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    line-height: 1.6;
+}
+
+/* HEADER */
+.hero-header {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #09111f 0%, #111d31 50%, #071019 100%);
+    border-bottom: 2px solid #c89b3c;
+}
+.header-content {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.eyebrow {
+    margin: 0 0 15px;
+    color: #c89b3c;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vm, 5.5rem);
+    line-height: 1.05;
+    color: #f4f1de;
+}
+
+h1 span{
+    display: block;
+    color: #c89b3c;
+}
+
+.substitute {
+    max-width: 700px;
+    margin: 25px auto;
+    color: #b8c1cc;
+    font-size: 1.1rem;
+}
+
+#student-info {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: 1px solid #354257;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e6e6e6;
+    font-weight: bold;
+}
+
+/* MAIN CONTENT */
+
+main {
+    width: min(1250px, 92%);
+    margin: 45px auto;
+}
+
+/* CONTROLS */
+.controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.control-group label{
+    display: block;
+    margin-bottom: 8px;
+    color: #d9d9d9;
+    font-weight: bold;
+}
+
+input, select{
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #354257;
+    border-radius: 8px;
+    background: #111722;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus{
+    outline: none;
+    border-color: #c89b3c;
+    box-shadow: 0 0 0 2px rgba(200, 155, 60, 0.2);
+}
+
+/* SUMMARY CARDS */
+
+.summary{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.summary-card{
+    padding: 25px;
+    background: #111722;
+    border: 1px solid #293448;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.summary-number{
+    display: block;
+    margin-bottom: 5px;
+    color: #c89b3c;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.summary-label{
+    color: #9ca7b5;
+    font-size: 0.9rem;
+}
+
+/* STATUS MESSAGE */
+
+.status {
+    margin: 25px 0;
+    text-align: center;
+    color: #9ca7b5;
+}
+
+/* CHAMPION GRID */
+
+.champion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* CHAMPION CARD */
+
+.champion-card{
+    overflow: hidden;
+    background: #111722;
+    border: 1px solid #293448;
+    border-radius: 14px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.champion-card:hover{
+    transform: translateY(-7px);
+    border-color: #c89b3c;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* CHAMPION IMAGE */
+.champion-image-container{
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.champion-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.champion-card:hover .champion-image{
+    transform: scale(1.06);
+}
+
+/* IMAGE OVERLAY */
+
+.image-overlay{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 20px 15px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+/* CHAMPION CONTENT */
+
+.champion-content{
+    padding: 20px;
+}
+
+.champion-name{
+    margin: 0;
+    font-size: 1.6rem;
+    color: #f4f1de;
+}
+
+.champion-title{
+    margin: 2px 0 18px;
+    color: #c89b3c;
+    font-size: 0.9rem;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ROLE TAGS */
+.roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.role-tag{
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* STAT ROW */
+
+.stat-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin: 13px 0; 
+    color: #aeb7c3; 
+} 
+
+.stat-value { 
+    color: #ffffff; 
+    font-weight: bold; 
+}
+
+/* STAT BAR */
+.stat-bar-background { 
+    width: 100%; 
+    height: 7px; 
+    overflow: hidden; 
+    margin-top: -5px; 
+    margin-bottom: 12px; 
+    border-radius: 10px; 
+    background: #293448; 
+} 
+
+.stat-bar { 
+    height: 100%; 
+    border-radius: 10px; 
+    background: #c89b3c; 
+}
+
+/* DOCUMENTATION SECTION */
+
+.documentation { 
+    display: grid; 
+    grid-template-columns: 2fr 1fr; 
+    gap: 40px; 
+    margin-top: 65px; 
+    padding: 35px; 
+    background: #111722; 
+    border: 1px solid #293448; 
+    border-radius: 14px; 
+} 
+.section-label { 
+    margin: 0 0 8px; 
+    color: #c89b3c; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    letter-spacing: 2px;
+ } 
+
+ .documentation h2 { 
+    margin-top: 0; 
+    color: #f4f1de; 
+} 
+
+.documentation p { 
+    color: #aeb7c3; 
+} 
+
+.documentation-links { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    gap: 15px; 
+} 
+
+.documentation-links a { 
+    display: block; 
+    padding: 13px 15px; 
+    border: 1px solid #354257; 
+    border-radius: 8px; 
+    color: #c89b3c; 
+    text-decoration: none; 
+    transition: background 0.2s ease, color 0.2s ease; 
+} 
+
+.documentation-links a:hover { 
+    background: #c89b3c; 
+    color: #090d14; 
+}
+
+/* FOOTER */
+
+footer {
+    padding:
+        30px 20px;
+
+    text-align:
+        center;
+
+    background:
+        #060910;
+
+    color:
+        #687383;
+
+    font-size:
+        0.9rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .controls {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .controls .control-group:first-child {
+        grid-column:
+            1 / -1;
+    }
+
+    .documentation {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .controls {
+        grid-template-columns:
+            1fr;
+    }
+
+    .controls .control-group:first-child {
+        grid-column:
+            auto;
+    }
+
+    .summary {
+        grid-template-columns:
+            1fr;
+    }
+
+    .documentation {
+        padding:
+            25px;
+    }
+
+    .hero-header {
+        min-height:
+            350px;
+
+        padding:
+            50px 15px;
+    }
+
+}
